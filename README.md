@@ -1,6 +1,18 @@
 # CPU+FFT Project #
 
-## 文件结构 ##
+## 进度安排 ##
+
+- [x] 整理文件结构
+- [x] 跑通 gcc 编译链
+- [ ] 重新设计 FFT
+- [ ] 本地 Vivado 跑通单周期 CPU+FFT
+- [ ] 调整 gcc 适应流水线 FFT
+- [ ] 虚拟机内跑通行为级仿真
+- [ ] DC
+- [ ] ICC
+- [ ] PT
+
+### 文件结构 ###
 
 ``` .
 soc_ahblite
