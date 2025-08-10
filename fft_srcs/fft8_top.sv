@@ -23,43 +23,48 @@ module fft8_top(
   );
 
   assign  valid_in  = &ready_buf;
-  assign  buf_addr  = slave0.haddr[3:2];
 
   always_ff @(posedge pclk or negedge preset) begin
     if (!preset) begin
-      slave0.hrdata   <=  0;
-      slave0.hready   <=  0;
-      slave0.hresp    <=  0;
+      slave0.hrdata   <=  '0;
+      slave0.hready   <=  '0;
+      slave0.hresp    <=  '0;
+      ready_buf       <=  '0;
+      buf_addr        <=  '0;
       for (integer i = 0; i < 8; i = i + 1) begin
-        din[i]        <=  0;
+        din[i]        <=  '0;
       end
     end
     else begin
       if (slave0.hsel) begin
-        if (slave0.hwrite) begin
-          slave0.hready         <=  1;
-          if (~ready_buf[buf_addr]) begin
-            din[buf_addr]       <=  slave0.hwdata;
-            ready_buf[buf_addr] <=  1;
-          end
-        end
-        else begin
-          slave0.hready   <=  valid_out;
-          slave0.hrdata   <=  dout[buf_addr];
+        buf_addr        <=  slave0.haddr[4:2];
+        slave0.hready   <=  1;
+        if (~slave0.hwrite) begin
+          slave0.hrdata[31:16]  <=  dout[slave0.haddr[4:2]].re;
+          slave0.hrdata[15: 0]  <=  dout[slave0.haddr[4:2]].im;
         end
       end
       else begin
-        slave0.hrdata   <=  0;
-        slave0.hready   <=  0;
-        slave0.hresp    <=  0;
-      end
-
-      if (valid_in) begin
-        ready_buf <=  0;
-        for (integer i = 0; i < 8; i = i + 1) begin
-          din[i]  <=  0;
+        slave0.hrdata   <=  '0;
+        slave0.hready   <=  '0;
+        slave0.hresp    <=  '0;
+        if (slave0.hready & ~ready_buf[buf_addr]) begin
+          din[buf_addr].re      <=  slave0.hwdata[31:16];
+          din[buf_addr].im      <=  slave0.hwdata[15: 0];
+          ready_buf[buf_addr]   <=  1;
         end
       end
+
+      // TODO: 不再支持准备好立即清空的操作,
+      // 后续如果需要多次 FFT,
+      // 可以多设一个控制寄存器作为清空标志
+
+      // if (valid_in) begin
+      //   ready_buf <=  0;
+      //   for (integer i = 0; i < 8; i = i + 1) begin
+      //     din[i]  <=  0;
+      //   end
+      // end
     end
   end
 
