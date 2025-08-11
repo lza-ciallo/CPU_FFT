@@ -9,10 +9,11 @@
 - [x] 调整 gcc 适应流水线 FFT ......8.10
 - [x] 虚拟机内跑通行为级仿真 ......8.10
 - [x] DC ......8.11
-- [ ] ICC
+- [ ] 写 FFT16 汇编代码
+- [ ] ICC ......8.11(interrupt)
 - [ ] PT
 
-### 文件结构 ###
+### soc_ahblite 文件结构 ###
 
 ``` .
 soc_ahblite
@@ -75,14 +76,4 @@ soc_ahblite
 2.  修改 compile.tcl 的 DESIGN_NAME, stdCell_path, link_library
 3.  sh clean; sh compile.sh
 4.  检查 soc_ahblite.rpt
-```
-
-### ICC 版图 ###
-
-``` tcl
-    配置 rm_setup
-        rm_setup/common_setup.tcl: DESIGN_NAME, DESIGN_REF_DATA_PATH
-        rm_setup/icc_setup.tcl: CORE_WIDTH, CORE_HEIGHT, etc.
-->  配置 floorplan
-        myscript/floorplan: *.tcl
 ```
