@@ -76,3 +76,13 @@ soc_ahblite
 ->  sh clean; sh compile.sh
 ->  检查 soc_ahblite.rpt
 ```
+
+### ICC 版图 ###
+
+``` tcl
+    配置 rm_setup
+        rm_setup/common_setup.tcl: DESIGN_NAME, DESIGN_REF_DATA_PATH
+        rm_setup/icc_setup.tcl: CORE_WIDTH, CORE_HEIGHT, etc.
+->  配置 floorplan
+        myscript/floorplan: *.tcl
+```
