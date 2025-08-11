@@ -8,7 +8,7 @@
 - [x] 本地 Vivado 跑通单周期 CPU+FFT ......8.10
 - [x] 调整 gcc 适应流水线 FFT ......8.10
 - [x] 虚拟机内跑通行为级仿真 ......8.10
-- [ ] DC
+- [x] DC ......8.11
 - [ ] ICC
 - [ ] PT
 
@@ -57,4 +57,22 @@ soc_ahblite
 ├── inst_sram
 └── rom
     └── rom_32x64
+```
+
+### VCS 前仿 ###
+
+``` tcl
+    配置 filelist
+->  make vcs_run
+->  make verdi (以上两步 = make all)
+->  'Get Signals' 添加波形
+```
+
+### DC 综合 ###
+
+``` tcl
+    修改 rtl_source_files.tcl, 加入库文件以外的 filelist
+->  修改 compile.tcl 的 DESIGN_NAME, stdCell_path, link_library
+->  sh clean; sh compile.sh
+->  检查 soc_ahblite.rpt
 ```
