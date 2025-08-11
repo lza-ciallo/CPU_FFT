@@ -12,6 +12,7 @@ module fft8_top(
   logic         valid_in  ;
   logic         valid_out ;
   logic   [2:0] buf_addr  ;
+  logic         wena      ;
 
   FFT8 u_FFT8 (
     .clk          (pclk       ),
@@ -31,6 +32,7 @@ module fft8_top(
       slave0.hresp    <=  '0;
       ready_buf       <=  '0;
       buf_addr        <=  '0;
+      wena            <=  '0;
       for (integer i = 0; i < 8; i = i + 1) begin
         din[i]        <=  '0;
       end
@@ -42,16 +44,24 @@ module fft8_top(
         if (~slave0.hwrite) begin
           slave0.hrdata[31:16]  <=  dout[slave0.haddr[4:2]].re;
           slave0.hrdata[15: 0]  <=  dout[slave0.haddr[4:2]].im;
+          wena                  <=  0;
+        end
+        else begin
+          wena  <=  1;
         end
       end
       else begin
         slave0.hrdata   <=  '0;
         slave0.hready   <=  '0;
         slave0.hresp    <=  '0;
-        if (slave0.hready & ~ready_buf[buf_addr]) begin
+        wena            <=  '0;
+        if (slave0.hready & wena) begin
           din[buf_addr].re      <=  slave0.hwdata[31:16];
           din[buf_addr].im      <=  slave0.hwdata[15: 0];
           ready_buf[buf_addr]   <=  1;
+        end
+        if (valid_in) begin
+          ready_buf   <=  '0;
         end
       end
 
