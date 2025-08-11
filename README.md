@@ -62,19 +62,19 @@ soc_ahblite
 ### VCS 前仿 ###
 
 ``` tcl
-    配置 filelist
-->  make vcs_run
-->  make verdi (以上两步 = make all)
-->  'Get Signals' 添加波形
+1.  配置 filelist
+2.  make vcs_run
+3.  make verdi (以上两步 = make all)
+4.  'Get Signals' 添加波形
 ```
 
 ### DC 综合 ###
 
 ``` tcl
-    修改 rtl_source_files.tcl, 加入库文件以外的 filelist
-->  修改 compile.tcl 的 DESIGN_NAME, stdCell_path, link_library
-->  sh clean; sh compile.sh
-->  检查 soc_ahblite.rpt
+1.  修改 rtl_source_files.tcl, 加入除库文件以外的 filelist
+2.  修改 compile.tcl 的 DESIGN_NAME, stdCell_path, link_library
+3.  sh clean; sh compile.sh
+4.  检查 soc_ahblite.rpt
 ```
 
 ### ICC 版图 ###
