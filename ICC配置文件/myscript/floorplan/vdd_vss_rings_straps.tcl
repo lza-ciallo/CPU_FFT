@@ -7,6 +7,6 @@ create_rectangular_rings -around core -nets VDD_SOC -left_segment_layer M4 -righ
 
 # TO DO: Create your Ring and Straps, must exists rings and straps both.
 # e.g. create_power_straps -nets {xxx} -direction vertical -start_at [$POS] -width 5 -num_placement_strap 1 -start_low_ends coordinate -start_low_ends_coordinate [$POS1] -start_high_ends coordinate -start_high_ends_coordinate [$POS2] -layer M4 -extend_low_ends off -extend_high_ends off
-create_power_straps -nets VDD_SOC -direction vertical -start_at $POS_START -width 5 -num_placement_strap 1 -start_low_ends coordinate -start_low_ends_coordinate $POS_L -start_high_ends coordinate -start_high_ends_coordinate $POS_H -layer M4 -extend_low_ends off -extend_high_ends off
+create_power_straps -nets VDD_SOC -direction vertical -start_at $POS_VDD_START -width 5 -num_placement_strap 1 -start_low_ends coordinate -start_low_ends_coordinate $POS_VDD_L -start_high_ends coordinate -start_high_ends_coordinate $POS_VDD_H -layer M4 -extend_low_ends off -extend_high_ends off
 
-create_power_straps -nets GND_SOC -direction vertical -start_at $POS_START -width 5 -num_placement_strap 1 -start_low_ends coordinate -start_low_ends_coordinate $POS_L -start_high_ends coordinate -start_high_ends_coordinate $POS_H -layer M4 -extend_low_ends off -extend_high_ends off
+create_power_straps -nets GND_SOC -direction vertical -start_at $POS_GND_START -width 5 -num_placement_strap 1 -start_low_ends coordinate -start_low_ends_coordinate $POS_GND_L -start_high_ends coordinate -start_high_ends_coordinate $POS_GND_H -layer M4 -extend_low_ends off -extend_high_ends off
