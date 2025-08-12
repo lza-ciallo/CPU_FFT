@@ -4,18 +4,18 @@
 
 - [x] 整理文件结构 ......8.8
 - [x] 跑通 gcc 编译链 ......8.9
-- [x] 重新设计 FFT ......8.10
-- [x] 本地 Vivado 跑通单周期 CPU+FFT ......8.10
-- [x] 调整 gcc 适应流水线 FFT ......8.10
+- [x] 重新设计 FFT8 ......8.10
+- [x] 本地 Vivado 跑通单周期 CPU+FFT8 ......8.10
+- [x] 调整 gcc 适应流水线 FFT8 ......8.10
 - [x] 虚拟机内跑通行为级仿真 ......8.10
 - [x] DC ......8.11
-- [ ] 写 FFT16 汇编代码
-- [ ] ICC ......8.11(interrupt) | ?.??(reset)
+- [ ] ICC ......8.1
 - [ ] PT
+- [ ] 写 FFT16 汇编代码
 
 ### soc_ahblite 文件结构 ###
 
-``` .
+``` tcl
 soc_ahblite
 ├── sub_system
 │   └── ibex_core
@@ -76,4 +76,28 @@ soc_ahblite
 2.  修改 compile.tcl 的 DESIGN_NAME, stdCell_path, link_library
 3.  sh clean; sh compile.sh
 4.  检查 soc_ahblite.rpt
+```
+
+### ICC 版图布局 ###
+
+``` tcl
+1.  关联 DC 综合结果
+2.  修改 tcl 文件
+3.  make outputs_icc
+4.  检查 reports
+```
+
+``` tcl
+# common_setup.tcl
+
+set DESIGN_NAME                   "soc_ahblite"  ;#  The name of the top-level design
+
+set DESIGN_REF_DATA_PATH          "/home/master/Project"  ;#  Absolute path prefix variable for library/design data.
+                                       #  Use this variable to prefix the common absolute path  
+                                       #  to the common variables defined below.
+                                       #  Absolute paths are mandatory for hierarchical 
+                                       #  reference methodology flow.
+
+# icc_setup.tcl
+
 ```
