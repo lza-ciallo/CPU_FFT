@@ -84,7 +84,8 @@ soc_ahblite
 1.  关联 DC 综合结果
 2.  修改 tcl 文件
 3.  make outputs_icc
-4.  检查 reports
+4.  打开 icc_shell 的 GUI, 检查布局布线
+5.  根据 report 的 timing 和 utilization 再返工
 ```
 
 ``` tcl
@@ -94,7 +95,7 @@ set DESIGN_REF_DATA_PATH          "/home/master/Project"  ;
 ```
 
 ``` tcl
-# icc_setup.tcl
+## icc_setup.tcl
 set CORE_WIDTH 450
 set CORE_HEIGHT 800
 set IO2CORE 40
@@ -117,10 +118,8 @@ set INST_SRAM_Y 610
 set DATA_SRAM_KEEPOUT_WIDTH 0.5
 set INST_SRAM_KEEPOUT_WIDTH 0.5
 
-set BLOCK_X0 50
-set BLOCK_Y0 600 
-set BLOCK_X1 480
-set BLOCK_Y1 840 
+set BLOCK_X0 40
+set BLOCK_Y0 600
 ```
 
 ``` tcl

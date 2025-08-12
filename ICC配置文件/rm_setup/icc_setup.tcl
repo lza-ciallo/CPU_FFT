@@ -34,10 +34,8 @@ set INST_SRAM_KEEPOUT_WIDTH 0.5
 
 ## TO DO: Set Block Pos for Macro
 ## revise BLOCK_X0,BLOCK_Y0,...
-set BLOCK_X0 50
-set BLOCK_Y0 600 
-set BLOCK_X1 480
-set BLOCK_Y1 840 
+set BLOCK_X0 40
+set BLOCK_Y0 600
 
 set IP_ANTENNA_RULES_TCL "/mnt/hgfs/share/home/wangzb/lib1/TSMC65/clf/antennaRule_n65_9lm.tcl"   
 set IP_ICC_ROUTE_OPTIONS_TCL "/home/master/Project/impl_icc/myscript/icc_route_options.tcl"
