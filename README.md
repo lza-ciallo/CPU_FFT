@@ -9,7 +9,7 @@
 - [x] 调整 gcc 适应流水线 FFT8 ......8.10
 - [x] 虚拟机内跑通行为级仿真 ......8.10
 - [x] DC ......8.11
-- [ ] ICC ......8.1
+- [x] ICC ......8.12
 - [ ] PT
 - [ ] 写 FFT16 汇编代码
 
@@ -97,29 +97,29 @@ set DESIGN_REF_DATA_PATH          "/home/master/Project"  ;
 ``` tcl
 ## icc_setup.tcl
 set CORE_WIDTH 450
-set CORE_HEIGHT 800
+set CORE_HEIGHT 450
 set IO2CORE 40
 set POWER_RING_WIDTH 10
 set POWER_RING_PITCH 5
 
 set POS_VDD_START 260
-set POS_VDD_L 591
-set POS_VDD_H 871
+set POS_VDD_L 241
+set POS_VDD_H 521
 
 set POS_GND_START 270
-set POS_GND_L 591
-set POS_GND_H 856
+set POS_GND_L 241
+set POS_GND_H 506
 
 set DATA_SRAM_X 60
-set DATA_SRAM_Y 610
+set DATA_SRAM_Y 260
 set INST_SRAM_X 290
-set INST_SRAM_Y 610
+set INST_SRAM_Y 260
 
 set DATA_SRAM_KEEPOUT_WIDTH 0.5
 set INST_SRAM_KEEPOUT_WIDTH 0.5
 
 set BLOCK_X0 40
-set BLOCK_Y0 600
+set BLOCK_Y0 250
 ```
 
 ``` tcl

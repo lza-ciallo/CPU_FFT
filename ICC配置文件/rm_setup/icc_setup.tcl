@@ -6,26 +6,26 @@ puts "RM-Info: Running script [info script]\n"
 
 ## TO DO: Set your own height/width/io2core/ring_w/ring_p
 set CORE_WIDTH 450
-set CORE_HEIGHT 800
+set CORE_HEIGHT 450
 set IO2CORE 40
 set POWER_RING_WIDTH 10
 set POWER_RING_PITCH 5
 
 set POS_VDD_START 260
-set POS_VDD_L 591
-set POS_VDD_H 871
+set POS_VDD_L 241
+set POS_VDD_H 521
 
 set POS_GND_START 270
-set POS_GND_L 591
-set POS_GND_H 856
+set POS_GND_L 241
+set POS_GND_H 506
 
 
 ## TO DO: Set your Macro Pos
 ## e.g. set DATA_SRAM_X 45
 set DATA_SRAM_X 60
-set DATA_SRAM_Y 610
+set DATA_SRAM_Y 260
 set INST_SRAM_X 290
-set INST_SRAM_Y 610
+set INST_SRAM_Y 260
 
 ## TO DO: Set Macro Keepout width
 ## e.g. set DATA_SRAM_KEEPOUT_WIDTH 0.5
@@ -35,7 +35,7 @@ set INST_SRAM_KEEPOUT_WIDTH 0.5
 ## TO DO: Set Block Pos for Macro
 ## revise BLOCK_X0,BLOCK_Y0,...
 set BLOCK_X0 40
-set BLOCK_Y0 600
+set BLOCK_Y0 250
 
 set IP_ANTENNA_RULES_TCL "/mnt/hgfs/share/home/wangzb/lib1/TSMC65/clf/antennaRule_n65_9lm.tcl"   
 set IP_ICC_ROUTE_OPTIONS_TCL "/home/master/Project/impl_icc/myscript/icc_route_options.tcl"
