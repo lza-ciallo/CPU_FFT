@@ -85,7 +85,7 @@ soc_ahblite
 2.  修改 tcl 文件
 3.  make outputs_icc
 4.  打开 icc_shell 的 GUI, 检查布局布线
-5.  根据 report 的 timing 和 utilization 再返工
+5.  根据 reports/ 的 chip_finish_icc.max&min.tim 和 place_opt_icc.placement_utilization.rpt 再返工
 ```
 
 ``` tcl
